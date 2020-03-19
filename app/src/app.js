@@ -6,6 +6,7 @@ const logger  = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const wagner       = require('wagner-core');
+const session = require("express-session");
 
 var app = express();
 // Set PORT variable
@@ -19,6 +20,7 @@ app.set('port', PORT);
 // add sequelize ORM to wagner dependency manager
 const sequelize = require('./server/utils/db')(wagner);
 const dependencies = require('./server/utils/dependencies')(wagner);
+const middleware = require('./server/utils/controller')(wagner);
 
 // include the models, managers or any other utils here
 require('./server/models')(sequelize, wagner);
