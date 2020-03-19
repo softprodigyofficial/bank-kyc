@@ -22,7 +22,7 @@ module.exports = {
           type: Sequelize.STRING(50),
           allowNull: false,
           unique: true,
-        }
+        },
         is_active: {
           type: Sequelize.BOOLEAN,
           unique:false,

@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', 
+    return queryInterface.createTable('roles', 
       {
         id: {
           type: Sequelize.INTEGER(20),
@@ -22,7 +22,7 @@ module.exports = {
           type: Sequelize.STRING(50),
           allowNull: false,
           unique: true,
-        }
+        },
         is_active: {
           type: Sequelize.BOOLEAN,
           unique:false,

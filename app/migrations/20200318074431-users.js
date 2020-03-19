@@ -22,7 +22,7 @@ module.exports = {
           type: Sequelize.STRING(255),
           unique: true,
           allowNull: false,
-        }
+        },
         password: {
           type: Sequelize.STRING(255),
           allowNull: false
@@ -48,7 +48,7 @@ module.exports = {
           unique: false,
           allowNull: true,
           defaultValue:null
-        }
+        },
         role_id: {
           type: Sequelize.INTEGER(20),
           references: {
