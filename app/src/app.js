@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const wagner       = require('wagner-core');
 const session = require("express-session");
+var passport   = require('passport');
 
 var app = express();
 // Set PORT variable
@@ -32,6 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // include the routes path here
 require('./server/routes')(app,wagner);
