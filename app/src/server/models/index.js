@@ -3,7 +3,7 @@ var path = require('path');
 var _    = require('underscore');
 
 module.exports = function(sequelize,wagner) {
-  
+
     var models = {};
     var excludeFiles = ["index.js","entity","table"];
     fs
@@ -29,7 +29,7 @@ module.exports = function(sequelize,wagner) {
           });
         };
     })(this));
-  
+    
     return models
 
 };

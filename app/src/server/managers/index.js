@@ -1,8 +1,8 @@
 module.exports = function(wagner) {
 
-  wagner.factory('User', function(){
-    var User = require('./users');
-    return new User(wagner);
+  wagner.factory('Users', function(){
+    var Users = require('./users');
+    return new Users(wagner);
   });
 
 };
