@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors'); 
 const express = require('express');
 const path    = require('path');
 const favicon = require('static-favicon');
@@ -18,6 +19,7 @@ const PORT = process.env.PORT || 3000;
 app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'ejs');
 app.set('port', PORT);
+app.set('etag', 'strong');
 
 // add sequelize ORM to wagner dependency manager
 const sequelize = require('./server/utils/db')(wagner);
@@ -59,6 +61,7 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
+app.use(cors());
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());

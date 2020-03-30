@@ -1,11 +1,12 @@
 const config = require('config');
+const express = require('express');
 
 is_authenticated_controller = {
   'isAuthenticated': function(req, res, next){
   	if(req.session.user){ 
-  	  return next();	
+  	  next();	
   	} else {
-  	  res.redirect('/');
+  	  res.json({ success: '0', message: "failure", data: {message:"Not Logged in!"} });
   	}
   }
 };

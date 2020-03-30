@@ -4,6 +4,11 @@ module.exports = function(){
         timestamps: true,
         createdAt: 'createdAt',
         updatedAt: 'updatedAt',
-        classMethods: {}
+        classMethods: {},
+        scopes: {
+           active: {
+           	 where: { is_active: true }
+           }
+        }
     };
 };
