@@ -23,7 +23,7 @@ const Users = (function(){
     });
    }
 
-   Users.prototype["user"] = function(params) {
+  Users.prototype["user"] = function(params) {
      return new Promise((resolve, reject) => {
         var User = global_wagner.get('User');
         var id = params.id;
@@ -36,9 +36,25 @@ const Users = (function(){
          
         }).catch((error) => { reject(error); }); 
      });
-   }
-   
-   return Users;
+  }
+
+  Users.prototype["wallet-address"] = function(req){
+    return new Promise((resolve, reject) => {
+      var User = global_wagner.get('User');
+      console.log(req.body.wallet_address);
+      User.update({wallet_address: req.body.wallet_address },{where: {id: req.body.id }}).then((results) => {
+        if(results){
+          resolve(req.body.wallet_address);
+        } else {
+          reject(null);
+        }
+        
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  } 
+  return Users;
    
 })();
 

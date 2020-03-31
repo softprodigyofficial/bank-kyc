@@ -41,6 +41,13 @@ module.exports = function(app, wagner, passport) {
     });
   });
 
-
+  app.put('/v1/user/wallet-address', function(req, res){
+    wagner.get('Users')['wallet-address'](req).then(function(result){
+      res.status(HTTPStatus.OK).json({ success: '1', message: "success", data: result }); 
+    }).catch(function(error){
+      console.log(error);
+      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
+    });
+  });
 
 };

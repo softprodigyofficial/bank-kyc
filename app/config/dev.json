@@ -4,7 +4,7 @@
     "db": {
         "database": "bank_kyc",
         "username": "root",
-        "password": "",
+        "password": "root",
         "options": {
             "timezone": "+05:30",
             "dialect": "mysql",
@@ -20,14 +20,14 @@
             "replication": {
                 "write": {
                     "username": "root",
-                    "password": "",
+                    "password": "root",
                     "host": "127.0.0.1",
                     "port": 3306
                 },
                 "read": [
                     {
                         "username": "root",
-                        "password": "",
+                        "password": "root",
                         "host": "127.0.0.1",
                         "port": 3306
                     }

@@ -1,7 +1,7 @@
 {
   "dev": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "bank_kyc",
     "host": "127.0.0.1",
     "dialect": "mysql"
