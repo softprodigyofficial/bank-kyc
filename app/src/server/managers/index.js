@@ -5,4 +5,9 @@ module.exports = function(wagner) {
     return new Users(wagner);
   });
 
+  wagner.factory('Banks', function(){
+    var Banks = require('./banks');
+    return new Banks(wagner);
+  });
+
 };

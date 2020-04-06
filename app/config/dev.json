@@ -34,5 +34,11 @@
                 ]
             }
         }
+    },
+    "ethereum":{
+        "MNEMONIC" : "crowd half point stomach drill isolate genuine high kitchen inflict faith cheap",
+        "NETWORK" : "http://127.0.0.1:7545",
+        "NFT_CONTRACT_ADDRESS" : "0xA6C2c618Cd2194FFe422088549EEFAEA41CC7b89",
+        "WALLET_ADDRESS" : "0x4f2B63f1cE5CcE8B270d5Fba33A866D1FDAd7346"
     }
 }
