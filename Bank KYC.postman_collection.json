@@ -187,7 +187,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"hdfc\",\n\t\"wallet_address\":\"0xc5a22908E4A45dC65F3Df439E0474AF0d22D57fb\",\n\t\"rn\":\"bank002\"\n}",
+					"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -292,7 +292,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
+							"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -319,7 +319,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Tue, 07 Apr 2020 11:21:55 GMT"
+							"value": "Tue, 07 Apr 2020 12:01:33 GMT"
 						},
 						{
 							"key": "Server",
@@ -339,11 +339,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "45"
+							"value": "128"
 						},
 						{
 							"key": "ETag",
-							"value": "\"2d-SXAETCJfDvZ6WjmiPhgNSnil2gI\""
+							"value": "\"80-9lI+nZB8JcOlqq+apVwHEAsG4+4\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3A3GB_D72eCOjsPo55cGK02rOY2VW9rJih.Pfi8uyXm%2Bk7luApEhyKdsAfVlhkxKlub3z1dN9dfSi0; Path=/; HttpOnly"
 						},
 						{
 							"key": "Keep-Alive",
@@ -355,7 +359,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {}\n}"
+					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {\n        \"message\": \"VM Exception while processing transaction: revert Bank already present!\"\n    }\n}"
 				}
 			]
 		}

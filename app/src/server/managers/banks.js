@@ -20,11 +20,12 @@ const Banks = (function(){
   }
 
   Banks.prototype["add"] = function(req){
-    return new Promise( (resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       var Bank = global_wagner.get('Bank');
         console.log(req.body);
+        let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
         nftContract.methods.addBank(web3.utils.fromAscii(req.body.name), req.body.wallet_address, web3.utils.fromAscii(req.body.rn))
-        .send({from: config.ethereum.WALLET_ADDRESS})
+        .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
         .then((result) =>{
           console.log("result", result);
           Bank.create({name: req.body.name, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
@@ -35,8 +36,8 @@ const Banks = (function(){
             reject(bankerror);
           });
         }).catch((error) => {
-          console.log("blockchain error", error);
-          reject(error);
+          console.log("blockchain error", error.message);
+          reject({message:error.message});
         });
     });
   }
