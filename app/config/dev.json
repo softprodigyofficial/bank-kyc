@@ -1,0 +1,44 @@
+{
+    "app_route": "http://localhost:3000/",
+    "google_analytics": "",
+    "db": {
+        "database": "bank_kyc",
+        "username": "root",
+        "password": "root",
+        "options": {
+            "timezone": "+05:30",
+            "dialect": "mysql",
+            "dialectOptions": {
+                "decimalNumbers": true
+            },
+            "port": 3306,
+            "pool": {
+                "max": 50,
+                "min": 0,
+                "idle": 500
+            },
+            "replication": {
+                "write": {
+                    "username": "root",
+                    "password": "root",
+                    "host": "127.0.0.1",
+                    "port": 3306
+                },
+                "read": [
+                    {
+                        "username": "root",
+                        "password": "root",
+                        "host": "127.0.0.1",
+                        "port": 3306
+                    }
+                ]
+            }
+        }
+    },
+    "ethereum":{
+        "MNEMONIC" : "air insane page early ivory ten oyster air nasty mom wasp neck",
+        "NETWORK" : "http://127.0.0.1:7545",
+        "NFT_CONTRACT_ADDRESS" : "0xa78E1dFB09D77a469aAF18A0A1596FAA9946894E",
+        "WALLET_ADDRESS" : "0xA8982f872C27572919B028C8f1bBc8AB683fA970"
+    }
+}

@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+#truffle build
+build/
+package-lock.json
