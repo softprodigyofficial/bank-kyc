@@ -51,7 +51,7 @@ const Banks = (function(){
       }];
       const provider = new HDWalletProvider(config.ethereum.MNEMONIC, config.ethereum.NETWORK);
       const web3Instance = new web3( provider );
-      const nftContract = new web3Instance.eth.Contract(NFT_ABI, config.ethereum.NFT_CONTRACT_ADDRESS, { gasLimit: "1000000" });
+      const nftContract = new web3Instance.eth.Contract(NFT_ABI, config.ethereum.NFT_CONTRACT_ADDRESS, { gasLimit: "2000000" });
      console.log("contract",nftContract);
    
   Banks.prototype["add"] = function(req){
@@ -61,6 +61,7 @@ const Banks = (function(){
         nftContract.methods.addBank(web3.utils.fromAscii(req.body.name), req.body.wallet_address, web3.utils.fromAscii(req.body.rn))
         .send({from: config.ethereum.WALLET_ADDRESS})
         .then((result) =>{
+          console.log("result", result);
           Bank.create({name: req.body.name, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
           .then((bankresult) => {
              resolve(bankresult);
