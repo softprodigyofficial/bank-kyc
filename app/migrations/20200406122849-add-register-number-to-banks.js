@@ -2,12 +2,12 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => Promise.all([
-    	queryInterface.addColumn('banks', 'rg_number',{ 
+    	  queryInterface.addColumn('banks', 'rg_number',{ 
            type: Sequelize.STRING(255),
            allowNull: false,
            unique: true 
         },{
-           after: "name"
+           after: "wallet_address"
         }),
         queryInterface.addColumn('banks', 'eth_transaction_id',{ 
            type: Sequelize.STRING(255),
