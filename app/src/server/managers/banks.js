@@ -28,7 +28,7 @@ const Banks = (function(){
         .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
         .then((result) =>{
           console.log("result", result);
-          Bank.create({name: req.body.name, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
+          Bank.create({name: req.body.name, wallet_address: req.body.wallet_address, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
           .then((bankresult) => {
              resolve(bankresult);
           }).catch((bankerror) =>{
