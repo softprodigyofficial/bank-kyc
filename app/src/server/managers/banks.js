@@ -7,53 +7,18 @@ const config    = require('config');
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const Sequelize = require('sequelize');
 
-
-
 const Banks = (function(){
-   var global_wagner, sequelize;
+  let global_wagner, sequelize, kyc, provider, web3Instance, nftContract;
 
-    function Banks(wagner){
-     	global_wagner = wagner;
-      sequelize = require(path.join(__dirname,'../utils/db'))(global_wagner);
-      
-    }
+  function Banks(wagner){
+   	global_wagner = wagner;
+    sequelize = require(path.join(__dirname,'../utils/db'))(global_wagner);
+    kyc = global_wagner.get("KYC");
+    provider = new HDWalletProvider(config.ethereum.MNEMONIC, config.ethereum.NETWORK);
+    web3Instance = new web3( provider );
+    nftContract = new web3Instance.eth.Contract(kyc.abi, config.ethereum.NFT_CONTRACT_ADDRESS, { gasLimit: "2000000" });
+  }
 
-    const NFT_ABI = [{
-          "constant": false,
-          "inputs": [
-              {
-                "internalType": "bytes32",
-                "name": "n",
-                "type": "bytes32"
-              },
-              {
-                "internalType": "address",
-                "name": "e",
-                "type": "address"
-              },
-              {
-                "internalType": "bytes32",
-                "name": "rn",
-                "type": "bytes32"
-              }
-          ],
-          "name": "addBank",
-          "outputs": [
-              {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
-      }];
-      const provider = new HDWalletProvider(config.ethereum.MNEMONIC, config.ethereum.NETWORK);
-      const web3Instance = new web3( provider );
-      const nftContract = new web3Instance.eth.Contract(NFT_ABI, config.ethereum.NFT_CONTRACT_ADDRESS, { gasLimit: "2000000" });
-     console.log("contract",nftContract);
-   
   Banks.prototype["add"] = function(req){
     return new Promise( (resolve, reject) => {
       var Bank = global_wagner.get('Bank');
@@ -74,9 +39,10 @@ const Banks = (function(){
           reject(error);
         });
     });
-  } 
+  }
+
   return Banks;
-   
+
 })();
 
 module.exports = Banks;
