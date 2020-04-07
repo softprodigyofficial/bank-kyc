@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "6b3bc2ae-408f-4c5f-943d-480eba0012aa",
+		"name": "Bank KYC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"email\" : \"icici@kyc.local\",\n   \"password\" : \"user--\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kyc.local/v1/admin/login",
+					"protocol": "http",
+					"host": [
+						"kyc",
+						"local"
+					],
+					"path": [
+						"v1",
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"icici@kyc.local\",\n   \"password\" : \"user--\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/admin/login",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 10:59:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "\"2d-SXAETCJfDvZ6WjmiPhgNSnil2gI\""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {}\n}"
+				},
+				{
+					"name": "Login pass",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"icici@kyc.local\",\n   \"password\" : \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/admin/login",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 10:59:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "335"
+						},
+						{
+							"key": "ETag",
+							"value": "\"14f-BB2WGwZnab6k6w6WCHuP53/A8V4\""
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=99"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"email\": \"icici@kyc.local\",\n            \"password\": \"$2a$10$39t12v3MYL7ByaHqj1hUYe5o8VeUnzoR9sKS0Ecyo6pMj/g/pYofu\",\n            \"firstName\": null,\n            \"lastName\": null,\n            \"bank_id\": null,\n            \"role_id\": 2,\n            \"wallet_address\": \"\",\n            \"is_active\": true,\n            \"createdAt\": \"2020-04-07T10:58:41.000Z\",\n            \"updatedAt\": \"2020-04-07T10:58:41.000Z\"\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
