@@ -1,6 +1,7 @@
 {
-    "app_route": "http://localhost:3000/",
+    "app_route": "http://kyc.local/",
     "google_analytics": "",
+    "PORT":3002,
     "db": {
         "database": "bank_kyc",
         "username": "root",
@@ -36,9 +37,9 @@
         }
     },
     "ethereum":{
-        "MNEMONIC" : "air insane page early ivory ten oyster air nasty mom wasp neck",
+        "MNEMONIC" : "salon wide mail debris purity weapon traffic recall benefit extend special sunny",
         "NETWORK" : "http://127.0.0.1:7545",
-        "NFT_CONTRACT_ADDRESS" : "0xa78E1dFB09D77a469aAF18A0A1596FAA9946894E",
-        "WALLET_ADDRESS" : "0xA8982f872C27572919B028C8f1bBc8AB683fA970"
+        "NFT_CONTRACT_ADDRESS" : "0x9a459D8E32766Ef1C1dBBC9DA80E80696bCb0ad4",
+        "WALLET_ADDRESS" : "0xBFf7BDa7E04C019df99A2dfB5C74f7921db3dF43"
     }
 }

@@ -10,6 +10,7 @@
     "npm": "6.14.1"
   },
   "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.34",
     "async": "^2.6.2",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.4",
@@ -35,6 +36,7 @@
     "sequelize-cli": "^5.5.1",
     "static-favicon": "~1.0.0",
     "underscore": "^1.9.1",
-    "wagner-core": "^0.2.0"
+    "wagner-core": "^0.2.0",
+    "web3": "^1.2.6"
   }
 }

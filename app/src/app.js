@@ -10,6 +10,7 @@ const wagner        = require('wagner-core');
 const session       = require("express-session");
 const passport      = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
+const config = require('config');
 
 var app = express();
 // Set PORT variable
