@@ -19,4 +19,13 @@ module.exports = function(app, wagner) {
       res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
     });
   });
+
+  app.get('/v1/bank/list', function(req, res){
+    wagner.get('Banks')['list'](req).then(function(result){
+      res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
+    }).catch(function(error){
+      console.log(error);
+      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
+    });
+  });
 };

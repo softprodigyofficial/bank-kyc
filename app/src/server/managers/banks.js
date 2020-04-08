@@ -22,12 +22,10 @@ const Banks = (function(){
   Banks.prototype["add"] = function(req){
     return new Promise(async (resolve, reject) => {
       var Bank = global_wagner.get('Bank');
-        console.log(req.body);
         let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
         nftContract.methods.addBank(web3.utils.fromAscii(req.body.name), req.body.wallet_address, web3.utils.fromAscii(req.body.rn))
         .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
         .then((result) =>{
-          console.log("result", result);
           Bank.create({name: req.body.name, wallet_address: req.body.wallet_address, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
           .then((bankresult) => {
              resolve(bankresult);
@@ -40,6 +38,17 @@ const Banks = (function(){
           reject({message:error.message});
         });
     });
+  }
+
+  Banks.prototype["list"] = function(req){
+    return new Promise(async (resolve, reject)  =>{
+      var Bank = global_wagner.get('Bank');
+      Bank.scope(['active']).findAll().then((banks) => {
+        resolve(banks);
+      }).catch((error) => {
+        reject(error);
+      });
+    }); 
   }
 
   return Banks;
