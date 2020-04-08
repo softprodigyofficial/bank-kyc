@@ -53,7 +53,6 @@ const Banks = (function(){
 
   Banks.prototype["show"] = function(params){
     return new Promise( (resolve, reject) => {
-      console.log("methods", nftContract.methods);
       nftContract.methods.getBank(params.wallet_address).call()
       .then((result) => {
         result[0] = web3.utils.hexToString(result[0]);
@@ -63,6 +62,25 @@ const Banks = (function(){
         console.log("blockchain error", error.message);
         reject({message:error.message}); 
       }); 
+    });
+  }
+
+  Banks.prototype["delete"] = function(params){
+    return new Promise( (resolve, reject) =>{
+      var Bank = global_wagner.get('Bank'); 
+      nftContract.methods.removeBank(params.wallet_address).call()
+      .then((result) =>{
+        console.log("rrresult", result);
+        Bank.update({ is_active: 0 }, {where:{ wallet_address: params.wallet_address}}).then((resdata)=>{
+          resolve(resdata); 
+        }).catch((error) => {
+          reject(error);
+        });
+        
+      }).catch((error) =>{
+        console.log("blockchain error", error.message);
+        reject({message:error.message}); 
+      });
     });
   }
 

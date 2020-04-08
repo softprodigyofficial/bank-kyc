@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6b3bc2ae-408f-4c5f-943d-480eba0012aa",
+		"_postman_id": "72b8fdfd-3207-4f60-98da-bfa06271b0d6",
 		"name": "Bank KYC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -187,7 +187,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+					"raw": "{\n\t\"name\":\"hdfc2\",\n\t\"wallet_address\":\"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4\",\n\t\"rn\":\"bank003\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -195,12 +195,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://kyc.local/v1/bank/add",
+					"raw": "http://localhost:3000/v1/bank/add",
 					"protocol": "http",
 					"host": [
-						"kyc",
-						"local"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"v1",
 						"bank",
@@ -209,82 +209,6 @@
 				}
 			},
 			"response": [
-				{
-					"name": "addBank pass",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://kyc.local/v1/bank/add",
-							"protocol": "http",
-							"host": [
-								"kyc",
-								"local"
-							],
-							"path": [
-								"v1",
-								"bank",
-								"add"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Date",
-							"value": "Tue, 07 Apr 2020 11:20:22 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Apache/2.4.18 (Ubuntu)"
-						},
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "*"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "273"
-						},
-						{
-							"key": "ETag",
-							"value": "\"111-HAsHrM9T02rSUi3bKjOsB61jqhY\""
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "connect.sid=s%3AGZlF0tL-GL1nJEZQmG26-OPrRZhi322I.KfTYRb0429FyO644fSNcN6bCdz%2FB5TYAMjWwe2Gz4YM; Path=/; HttpOnly"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5, max=100"
-						},
-						{
-							"key": "Connection",
-							"value": "Keep-Alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"is_active\": true,\n        \"id\": 1,\n        \"name\": \"icici\",\n        \"rg_number\": \"bank001\",\n        \"eth_transaction_id\": \"0x8de0d822e7519ba3035658df931cb5459bb5ae0b13a43051e73f581b76264e24\",\n        \"updatedAt\": \"2020-04-07T11:20:22.360Z\",\n        \"createdAt\": \"2020-04-07T11:20:22.360Z\"\n    }\n}"
-				},
 				{
 					"name": "addBank fail",
 					"originalRequest": {
@@ -360,6 +284,375 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {\n        \"message\": \"VM Exception while processing transaction: revert Bank already present!\"\n    }\n}"
+				},
+				{
+					"name": "addBank pass",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 11:20:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "ETag",
+							"value": "\"111-HAsHrM9T02rSUi3bKjOsB61jqhY\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AGZlF0tL-GL1nJEZQmG26-OPrRZhi322I.KfTYRb0429FyO644fSNcN6bCdz%2FB5TYAMjWwe2Gz4YM; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"is_active\": true,\n        \"id\": 1,\n        \"name\": \"icici\",\n        \"rg_number\": \"bank001\",\n        \"eth_transaction_id\": \"0x8de0d822e7519ba3035658df931cb5459bb5ae0b13a43051e73f581b76264e24\",\n        \"updatedAt\": \"2020-04-07T11:20:22.360Z\",\n        \"createdAt\": \"2020-04-07T11:20:22.360Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "BankLists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/v1/bank/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"bank",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "BankLists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/v1/bank/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"bank",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "627"
+						},
+						{
+							"key": "ETag",
+							"value": "\"273-FfLWjeph2mD5CF29nbLH8IdQNKA\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AdflHr4Eb8jynJoabwOktZJI7-2tlLp-R.B1vEy%2FPwWLUBxLAENOoQj6xHFWXJaJ7s2xkol56ZbQA; Path=/; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 10:17:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"pnb\",\n            \"wallet_address\": \"0x22bB4c256dCc0b13afcA489ef7cA64d714F49a1B\",\n            \"rg_number\": \"bank001\",\n            \"eth_transaction_id\": \"0x5130d97b0467f418d96112a1243a874deb75eb433ebea441330848ee38d950c4\",\n            \"is_active\": true,\n            \"createdAt\": \"2020-04-07T12:34:11.000Z\",\n            \"updatedAt\": \"2020-04-07T12:34:11.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"hdfc\",\n            \"wallet_address\": \"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4\",\n            \"rg_number\": \"bank002\",\n            \"eth_transaction_id\": \"0x4678102329c5d43ea040521c7ce370f3df234726072afa0b7b25b3a18cd4d3a2\",\n            \"is_active\": true,\n            \"createdAt\": \"2020-04-07T14:55:40.000Z\",\n            \"updatedAt\": \"2020-04-07T14:55:40.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getBank",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/v1/bank/show/0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"bank",
+						"show",
+						"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4"
+					],
+					"query": [
+						{
+							"key": "wallet-address",
+							"value": "0x22bB4c256dCc0b13afcA489ef7cA64d714F49a1B?wallet-address",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getBank",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/v1/bank/show/0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"bank",
+								"show",
+								"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4"
+							],
+							"query": [
+								{
+									"key": "wallet-address",
+									"value": "0x22bB4c256dCc0b13afcA489ef7cA64d714F49a1B?wallet-address",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "ETag",
+							"value": "\"86-pWUIcsQHV7Ttm0MZou3vYKpOlaA\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3ACqtFeSEYV7sUiNikWyY3bX2H1DCq61qi.pR8ovkgE40qtW5pw0kDB1P55yQB6GiOzodoaas2V3nM; Path=/; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 12:53:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"0\": \"hdfc\",\n        \"1\": \"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4\",\n        \"2\": \"0\",\n        \"3\": \"0\",\n        \"4\": \"bank002\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteBank",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/v1/bank/delete/0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"bank",
+						"delete",
+						"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "deleteBank ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/v1/bank/delete/0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"bank",
+								"delete",
+								"0x36F28Cc93ED052140340f0D804A6a36CABbaE1b4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "\"2e-G57Y2qIEaNAwO/rInDxNuf0cjGM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 12:55:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": [\n        1\n    ]\n}"
 				}
 			]
 		}
