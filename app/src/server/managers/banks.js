@@ -41,7 +41,7 @@ const Banks = (function(){
   }
 
   Banks.prototype["list"] = function(req){
-    return new Promise(async (resolve, reject)  =>{
+    return new Promise( (resolve, reject)  =>{
       var Bank = global_wagner.get('Bank');
       Bank.scope(['active']).findAll().then((banks) => {
         resolve(banks);
@@ -49,6 +49,21 @@ const Banks = (function(){
         reject(error);
       });
     }); 
+  }
+
+  Banks.prototype["show"] = function(params){
+    return new Promise( (resolve, reject) => {
+      console.log("methods", nftContract.methods);
+      nftContract.methods.getBank(params.wallet_address).call()
+      .then((result) => {
+        result[0] = web3.utils.hexToString(result[0]);
+        result[4] = web3.utils.hexToString(result[4]);
+        resolve(result);
+      }).catch((error) => {
+        console.log("blockchain error", error.message);
+        reject({message:error.message}); 
+      }); 
+    });
   }
 
   return Banks;
