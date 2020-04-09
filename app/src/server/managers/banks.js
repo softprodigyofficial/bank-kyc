@@ -6,6 +6,7 @@ const Promise   = require('bluebird');
 const config    = require('config');
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const Banks = (function(){
   let global_wagner, sequelize, kyc, provider, web3Instance, nftContract;
@@ -86,9 +87,42 @@ const Banks = (function(){
     });
   }
 
+  Banks.prototype["upvotebank"] = function(req){
+    return new Promise(async (resolve, reject) => {
+      var BankVote = global_wagner.get('BankVote');
+      var Bank = global_wagner.get('Bank');
+      let bankdata = await Bank.scope(['active']).findOne({where:{wallet_address: req.body.wallet_address}, attributes:['id']});
+      if(bankdata){
+        let isBankVoted = await BankVote.findOne({where:{bank_id: bankdata.id, wallet_address: req.body.bank_session_wallet_address}});
+        if(isBankVoted){
+          resolve({message: "You have already voted for this bank"});
+        } else{
+          let nonce = await web3Instance.eth.getTransactionCount(req.body.bank_session_wallet_address);
+          nftContract.methods.upvoteBank(req.body.wallet_address)
+          .send({nonce:nonce, from: req.body.bank_session_wallet_address})
+          .then(async(result) => {
+            let bankRating = await nftContract.methods.getBankRating(req.body.wallet_address).call();
+            let bankVote = await BankVote.create({
+              bank_id: bankdata.id, 
+              wallet_address: req.body.bank_session_wallet_address,
+              vote: bankRating
+             }); 
+            resolve(bankVote);
+          }).catch((error) => {
+            console.log("blockchain error", error.message);
+            reject({message:error.message});
+          });
+        }
+      } else {
+        reject({message: "Bank does not exist"});  
+      }
+      
+    });
+  }
+
   return Banks;
 
 })();
 
 module.exports = Banks;
-const Op = Sequelize.Op;
+
