@@ -26,6 +26,12 @@ module.exports = function(sequelize, DataTypes) {
       );
     });
 
+    User.associate = function(models){
+        User.belongsTo(models.Bank,{
+          as: 'bank', constraints: true, targetKey: 'id', foreignKey:'bank_id'
+        });
+    }
+
     return User;
 
 };

@@ -1,6 +1,7 @@
 'use strict';
 const web3 = require('web3');
 const path = require('path');
+const bcrypt  = require("bcryptjs");
 const request = require("request");
 const Promise   = require('bluebird');
 const config    = require('config');
@@ -23,21 +24,37 @@ const Banks = (function(){
   Banks.prototype["add"] = function(req){
     return new Promise(async (resolve, reject) => {
       var Bank = global_wagner.get('Bank');
-        let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
-        nftContract.methods.addBank(web3.utils.fromAscii(req.body.name), req.body.wallet_address, web3.utils.fromAscii(req.body.rn))
-        .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
-        .then((result) =>{
-          Bank.create({name: req.body.name, wallet_address: req.body.wallet_address, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
-          .then((bankresult) => {
-             resolve(bankresult);
-          }).catch((bankerror) =>{
-            console.log("Bank error", bankerror);
-            reject(bankerror);
+      var User = global_wagner.get('User');
+      var Role = global_wagner.get('Role');
+      
+      let role = await Role.findOne({where:{name: 'bank'}});
+      
+      let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
+      
+      nftContract.methods.addBank(web3.utils.fromAscii(req.body.name), req.body.wallet_address, web3.utils.fromAscii(req.body.rn))
+      .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
+      .then((result) =>{
+        Bank.create({name: req.body.name, wallet_address: req.body.wallet_address, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
+        .then( async(bankresult) => {
+          console.log("Password", req.body.password);
+          await User.create({ 
+            email: req.body.email, 
+            password: await bcrypt.hashSync(req.body.password, 10, null),
+            firstName: req.body.name,
+            lastName: req.body.name,
+            bank_id: bankresult.id,
+            role_id: role.id,
+            is_active: true
           });
-        }).catch((error) => {
-          console.log("blockchain error", error.message);
-          reject({message:error.message});
+          resolve(bankresult);
+        }).catch((bankerror) =>{
+          console.log("Bank error", bankerror);
+          reject(bankerror);
         });
+      }).catch((error) => {
+        console.log("blockchain error", error.message);
+        reject({message: error.message});
+      });
     });
   }
 
@@ -68,12 +85,18 @@ const Banks = (function(){
 
   Banks.prototype["delete"] = function(params){
     return new Promise(async (resolve, reject) =>{
-      var Bank = global_wagner.get('Bank'); 
+      var Bank = global_wagner.get('Bank');
+      var User = global_wagner.get('User');
+      var BankVote = global_wagner.get('BankVote');
+
+      let bankData =  await Bank.findOne({where:{ wallet_address: params.wallet_address}});
       let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
       nftContract.methods.removeBank(params.wallet_address)
       .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
-      .then((result) =>{
+      .then( async(result) =>{
         console.log("rrresult", result);
+        await BankVote.destroy({where:{bank_id: bankData.id}});
+        await User.destroy({where:{bank_id: bankData.id}});
         Bank.destroy({where:{ wallet_address: params.wallet_address}}).then((resdata)=>{
           resolve(resdata);
         }).catch((error) => {
