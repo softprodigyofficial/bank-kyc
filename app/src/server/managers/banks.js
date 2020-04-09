@@ -48,7 +48,7 @@ const Banks = (function(){
       }).catch((error) => {
         reject(error);
       });
-    }); 
+    });
   }
 
   Banks.prototype["show"] = function(params){
@@ -60,8 +60,8 @@ const Banks = (function(){
         resolve(result);
       }).catch((error) => {
         console.log("blockchain error", error.message);
-        reject({message:error.message}); 
-      }); 
+        reject({message:error.message});
+      });
     });
   }
 
@@ -73,15 +73,15 @@ const Banks = (function(){
       .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
       .then((result) =>{
         console.log("rrresult", result);
-        Bank.update({ is_active: 0 }, {where:{ wallet_address: params.wallet_address}}).then((resdata)=>{
-          resolve(resdata); 
+        Bank.destroy({where:{ wallet_address: params.wallet_address}}).then((resdata)=>{
+          resolve(resdata);
         }).catch((error) => {
           reject(error);
         });
-        
+
       }).catch((error) =>{
         console.log("blockchain error", error.message);
-        reject({message:error.message}); 
+        reject({message:error.message});
       });
     });
   }

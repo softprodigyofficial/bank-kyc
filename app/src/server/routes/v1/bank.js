@@ -38,8 +38,8 @@ module.exports = function(app, wagner) {
     });
   });
 
-  app.get('/v1/bank/delete/:wallet_address', function(req, res){
-    wagner.get('Banks')['delete'](req.params).then(function(result){
+  app.post('/v1/bank/delete', function(req, res){
+    wagner.get('Banks')['delete'](req.body).then(function(result){
       res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
     }).catch(function(error){
       console.log(error);
