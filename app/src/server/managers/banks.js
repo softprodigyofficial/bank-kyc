@@ -39,7 +39,7 @@ const Banks = (function(){
           console.log("Password", req.body.password);
           await User.create({ 
             email: req.body.email, 
-            password: await bcrypt.hashSync(req.body.password, 10, null),
+            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
             firstName: req.body.name,
             lastName: req.body.name,
             bank_id: bankresult.id,
