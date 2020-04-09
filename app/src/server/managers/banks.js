@@ -66,9 +66,11 @@ const Banks = (function(){
   }
 
   Banks.prototype["delete"] = function(params){
-    return new Promise( (resolve, reject) =>{
+    return new Promise(async (resolve, reject) =>{
       var Bank = global_wagner.get('Bank'); 
-      nftContract.methods.removeBank(params.wallet_address).call()
+      let nonce = await web3Instance.eth.getTransactionCount(config.ethereum.WALLET_ADDRESS);
+      nftContract.methods.removeBank(params.wallet_address)
+      .send({nonce:nonce, from: config.ethereum.WALLET_ADDRESS})
       .then((result) =>{
         console.log("rrresult", result);
         Bank.update({ is_active: 0 }, {where:{ wallet_address: params.wallet_address}}).then((resdata)=>{
