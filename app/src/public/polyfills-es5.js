@@ -19049,7 +19049,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! /var/www/html/angular-8/node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js */
+    /*! /var/www/html/bank-kyc-angular/node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js */
     "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
 
     __webpack_require__(
@@ -19057,7 +19057,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/zone.js/dist/zone-legacy.js");
 
     module.exports = __webpack_require__(
-    /*! /var/www/html/angular-8/src/polyfills.ts */
+    /*! /var/www/html/bank-kyc-angular/src/polyfills.ts */
     "./src/polyfills.ts");
     /***/
   }
