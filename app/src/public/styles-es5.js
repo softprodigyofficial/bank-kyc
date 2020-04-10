@@ -400,11 +400,11 @@
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! /var/www/html/angular-8/src/styles.css */
+    /*! /var/www/html/bank-kyc-angular/src/styles.css */
     "./src/styles.css");
 
     module.exports = __webpack_require__(
-    /*! /var/www/html/angular-8/node_modules/bootstrap/dist/css/bootstrap.min.css */
+    /*! /var/www/html/bank-kyc-angular/node_modules/bootstrap/dist/css/bootstrap.min.css */
     "./node_modules/bootstrap/dist/css/bootstrap.min.css");
     /***/
   }
