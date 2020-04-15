@@ -1,6 +1,7 @@
 'use strict';
 const web3 = require('web3');
 const path = require('path');
+const async = require('async');
 const bcrypt  = require("bcryptjs");
 const request = require("request");
 const Promise   = require('bluebird');
@@ -61,8 +62,23 @@ const Banks = (function(){
   Banks.prototype["list"] = function(req){
     return new Promise( (resolve, reject)  =>{
       var Bank = global_wagner.get('Bank');
-      Bank.scope(['active']).findAll().then((banks) => {
-        resolve(banks);
+      var banks_array = {};
+      Bank.scope(['active']).findAll({ raw: true }).then((banks) => {
+        async.forEachOf(banks, function(bankrow, iteratee, cb){
+           nftContract.methods.getBankRating(bankrow.wallet_address).call()
+           .then((result) => {
+              banks[iteratee].rating = result;
+              cb();
+           }).catch((err) => {
+              console.log("blockchain getbankrating error", err);
+              banks[iteratee].rating = 0;
+              cb();
+           });
+        }, function(error){
+            if(error){ reject(error); }
+            console.log(JSON.stringify(banks, null,4));
+            resolve(banks);
+        });
       }).catch((error) => {
         reject(error);
       });
@@ -121,6 +137,7 @@ const Banks = (function(){
           resolve({message: "You have already voted for this bank"});
         } else{
           let nonce = await web3Instance.eth.getTransactionCount(req.body.bank_session_wallet_address);
+         console.log("nonce", nonce); 
           nftContract.methods.upvoteBank(req.body.wallet_address)
           .send({nonce:nonce, from: req.body.bank_session_wallet_address})
           .then(async(result) => {
