@@ -160,6 +160,28 @@ const Banks = (function(){
     });
   }
 
+  Banks.prototype["add_bank_request"] = function(req){
+    return new Promise(async (resolve, reject) => {
+      let reqindex = 0;
+      let BankRequest = global_wagner.get('BankRequest');
+      let bankData = await BankRequest.findOne({where:{username: req.body.name, wallet_address: req.body.wallet_address }});
+      
+      if(bankData){
+        reqindex = (bankData.request_index + 1);
+      }else{
+        reqindex = 0;
+      }
+
+      BankRequest.create({ username: req.body.name, user_data: req.body.data, wallet_address: req.body.wallet_address, request_index: reqindex, is_allowed: req.body.isallowed })
+      .then((result)=>{
+        resolve(result);
+      }).catch((error) =>{
+        reject(error);
+      });
+
+    });
+  }
+
   return Banks;
 
 })();
