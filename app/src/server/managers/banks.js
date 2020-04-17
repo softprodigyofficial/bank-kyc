@@ -184,7 +184,8 @@ const Banks = (function(){
   Banks.prototype["list_bank_request"] = function(req){
     return new Promise( (resolve, reject) => {
        let BankRequest = global_wagner.get('BankRequest');
-       BankRequest.findAll({where:{wallet_address: req.body.wallet_address }}).then((result) => {
+       console.log("Parameters", req.query);
+       BankRequest.scope(['active']).findAll({where:{wallet_address: req.query.wallet_address }}).then((result) => {
          resolve(result);
        }).catch((error) => {
          reject(error);

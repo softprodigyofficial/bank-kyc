@@ -5,6 +5,10 @@ module.exports = function(){
         createdAt: 'createdAt',
         updatedAt: 'updatedAt',
         classMethods: {},
-        scopes: {}
+        scopes: {
+          active: {
+           	 where: { is_active: true }
+           }
+        }
     };
 }

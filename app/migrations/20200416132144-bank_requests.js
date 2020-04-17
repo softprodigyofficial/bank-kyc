@@ -42,8 +42,14 @@ module.exports = {
       is_allowed: {
         type: Sequelize.BOOLEAN,
         unique:false,
-        allowNull: true,
+        allowNull: false,
         defaultValue: false
+      },
+      is_active: {
+        type: Sequelize.BOOLEAN,
+        unique:false,
+        allowNull: false,
+        defaultValue: true
       }
     },
     {

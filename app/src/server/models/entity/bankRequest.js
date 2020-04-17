@@ -33,6 +33,12 @@ module.exports = function(){
     is_allowed: {
         type: Sequelize.BOOLEAN,
         unique:false,
+        allowNull: false,
+        defaultValue: false
+    },
+    is_active: {
+        type: Sequelize.BOOLEAN,
+        unique:false,
         allowNull: true,
         defaultValue: false
     }
