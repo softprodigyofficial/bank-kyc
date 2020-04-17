@@ -171,7 +171,6 @@ const Banks = (function(){
       }else{
         reqindex = 0;
       }
-
       BankRequest.create({ username: req.body.name, user_data: req.body.data, wallet_address: req.body.wallet_address, request_index: reqindex, is_allowed: req.body.isallowed })
       .then((result)=>{
         resolve(result);
@@ -179,6 +178,17 @@ const Banks = (function(){
         reject(error);
       });
 
+    });
+  }
+
+  Banks.prototype["list_bank_request"] = function(req){
+    return new Promise( (resolve, reject) => {
+       let BankRequest = global_wagner.get('BankRequest');
+       BankRequest.findAll({where:{wallet_address: req.body.wallet_address }}).then((result) => {
+         resolve(result);
+       }).catch((error) => {
+         reject(error);
+       });
     });
   }
 
