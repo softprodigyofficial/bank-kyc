@@ -193,6 +193,17 @@ const Banks = (function(){
     });
   }
 
+  Banks.prototype["remove_bank_request"] = function(req){
+    return new Promise( (resolve, reject) => {
+      let BankRequest = global_wagner.get('BankRequest');
+      BankRequest.update({ is_active: 0 },{where:{ username: req.body.username, user_data: req.body.user_data, wallet_address: req.body.wallet_address }}).then((result) => {
+        resolve(result);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  }
+
   return Banks;
 
 })();
