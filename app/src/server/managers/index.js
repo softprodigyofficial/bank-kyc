@@ -10,4 +10,8 @@ module.exports = function(wagner) {
     return new Banks(wagner);
   });
 
+  wagner.factory('Customers', function(){
+    var Customers = require('./customers');
+  });
+
 };
