@@ -28,6 +28,17 @@ const Customers = (function(){
 	   }); 
 	}
 
+	Customers.prototype["list"] = function(req){
+	    return new Promise( (resolve, reject)=> {
+           var Customer = global_wagner.get('Customer');
+           Customer.scope(['active']).findAll({where:{wallet_address: req.query.wallet_address }}).then((result) => {
+             resolve(result);
+           }).catch((error) =>{
+           	 reject(error);
+           })  
+		});
+	}
+
 	return Customers;
 
 })();
