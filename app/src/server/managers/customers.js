@@ -39,6 +39,18 @@ const Customers = (function(){
 		});
 	}
 
+	Customers.prototype["vote"] = function(req){
+		return new Promise( (resolve, reject)=> {
+           var Customer = global_wagner.get('Customer');
+           Customer.update({rating: req.body.rating },{where:{username: req.body.username, wallet_address: req.body.wallet_address}})
+		   .then((result) =>{
+             resolve(result);
+		   }).catch((error) => {
+             reject(error);
+		   });
+		});
+	}
+
 	return Customers;
 
 })();
