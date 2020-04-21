@@ -19,7 +19,7 @@ const Customers = (function(){
 	Customers.prototype["add"] = function(req){
 	   return new Promise( (resolve, reject)=>{
           var Customer = global_wagner.get('Customer');
-          Customer.create({ username: req.body.username, user_data: req.body.data, wallet_address: req.body.wallet_address , rating: 0 , votes: 0 , is_active: true})
+          Customer.create({ username: req.body.username, user_data: req.body.data, password: '0', wallet_address: req.body.wallet_address , rating: 0 , votes: 0 , is_active: true})
           .then((result) => {
             resolve(result);
           }).catch((error) => {
