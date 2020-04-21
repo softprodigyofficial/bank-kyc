@@ -51,6 +51,30 @@ const Customers = (function(){
 		});
 	}
 
+	Customers.prototype["view"] = function(req){
+		return new Promise( (resolve, reject)=> {
+           var Customer = global_wagner.get('Customer');
+           Customer.scope(['active']).findOne({where:{id: req.query.id, username: req.query.username }}).then((result)=>{
+              resolve(result);
+           }).catch((error)=>{
+              reject(error);
+           }); 
+		});
+	}
+
+    Customers.prototype["edit"] = function(req){
+       return new Promise( (resolve, reject)=> {
+	       	var Customer = global_wagner.get('Customer');
+	       	Customer.update({user_data: req.body.data, rating: 0, votes: 0}, {where:{username : req.body.username, wallet_address: req.body.wallet_address }})
+	        .then((result) => {
+	           resolve(result);
+	        }).catch((error) => {
+               reject(error);
+	        });
+       }); 
+    }
+
+
 	return Customers;
 
 })();

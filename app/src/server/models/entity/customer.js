@@ -19,6 +19,11 @@ module.exports = function(){
       unique: true,
       allowNull: false
     },
+    password: {
+      type: Sequelize.STRING(255),
+      unique: false,
+      allowNull: false 
+    },
     wallet_address: {
       type: Sequelize.STRING(255),
       unique: false,
