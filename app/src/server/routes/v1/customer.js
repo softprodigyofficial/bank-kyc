@@ -64,5 +64,14 @@ module.exports = function(app, wagner) {
 	    res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
       });
     });
+
+    app.put('/v1/customer/set_password', function(req, res){
+      wagner.get('Customers')['set_password'](req).then(function(result){
+        res.status(HTTPStatus.OK).json({ success: '1', message: "success", data: result });
+      }).catch(function(error){
+        console.log(error);
+	    res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
+      }); 
+    });
 };
 
