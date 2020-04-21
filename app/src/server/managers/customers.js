@@ -75,6 +75,19 @@ const Customers = (function(){
     }
 
 
+    Customers.prototype["delete"] = function(req){
+       return new Promise( (resolve, reject)=> {
+          var Customer = global_wagner.get('Customer');
+          Customer.update({is_active: 0 },{where:{username : req.body.username, wallet_address: req.body.wallet_address }})
+          .then((result) => {
+            resolve(result);
+          }).catch((error) => {
+            reject(error);
+          });
+       });
+    }
+
+
 	return Customers;
 
 })();
