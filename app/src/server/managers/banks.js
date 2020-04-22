@@ -37,10 +37,9 @@ const Banks = (function(){
       .then((result) =>{
         Bank.create({name: req.body.name, wallet_address: req.body.wallet_address, rg_number: req.body.rn, eth_transaction_id: result.transactionHash})
         .then( async(bankresult) => {
-          console.log("Password", req.body.password);
           await User.create({ 
             email: req.body.email, 
-            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
+            password: req.body.password,
             firstName: req.body.name,
             lastName: req.body.name,
             bank_id: bankresult.id,
