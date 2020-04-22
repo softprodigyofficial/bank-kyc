@@ -31,7 +31,11 @@ const Customers = (function(){
 	Customers.prototype["list"] = function(req){
 	    return new Promise( (resolve, reject)=> {
            var Customer = global_wagner.get('Customer');
-           Customer.scope(['active']).findAll({where:{wallet_address: req.query.wallet_address }}).then((result) => {
+           let where = {};
+           if(req.query.wallet_address != 'null'){
+              where = { wallet_address: req.query.wallet_address };
+           }
+           Customer.scope(['active']).findAll({where: where}).then((result) => {
              resolve(result);
            }).catch((error) =>{
            	 reject(error);
