@@ -1064,7 +1064,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log("this web3", this.web3);
           this.enableAccounts().then(function () {
             _this4.refreshAccounts();
-          }); // this.contract = new this.web3.eth.Contract(kyc, environment.ContractAddress);
+          });
+          this.contract = new this.web3.eth.Contract(kyc, _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].ContractAddress);
         }
       }, {
         key: "getProvider",
@@ -2989,11 +2990,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function AdminLoginComponent_p_12_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p", 19);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AdminLoginComponent_p_12_span_1_Template, 2, 0, "span", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AdminLoginComponent_p_12_span_1_Template, 2, 0, "span", 20);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, AdminLoginComponent_p_12_span_2_Template, 2, 0, "span", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, AdminLoginComponent_p_12_span_2_Template, 2, 0, "span", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
       }
@@ -3023,9 +3024,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function AdminLoginComponent_p_19_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p", 19);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AdminLoginComponent_p_19_span_1_Template, 2, 0, "span", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AdminLoginComponent_p_19_span_1_Template, 2, 0, "span", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
       }
@@ -3165,9 +3166,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AdminLoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
       type: AdminLoginComponent,
       selectors: [["app-admin-login"]],
-      decls: 32,
+      decls: 30,
       vars: 4,
-      consts: [[1, "container"], [1, "card", "card-login", "mx-auto", "mt-5"], [1, "card-header"], [1, "card-body"], ["novalidate", "", 3, "formGroup"], [1, "form-group"], [1, "form-label-group"], ["type", "email", "placeholder", "Email address", "autofocus", "autofocus", "formControlName", "inputEmail", "id", "inputEmail", 1, "form-control"], ["inputEmail", ""], ["for", "inputEmail"], ["class", "alert-danger", 4, "ngIf"], ["type", "password", "placeholder", "Password", "formControlName", "inputPassword", "id", "inputPassword", 1, "form-control"], ["inputPassword", ""], ["for", "inputPassword"], [1, "checkbox"], ["type", "checkbox", "value", "remember-me"], ["type", "submit", 1, "btn", "btn-primary", "btn-block", 3, "disabled", "click"], [1, "text-center"], ["href", "javascript:void(0);", 1, "d-block", "small", "mt-3", 3, "click"], ["href", "forgot-password.html", 1, "d-block", "small"], [1, "alert-danger"], [4, "ngIf"]],
+      consts: [[1, "container"], [1, "card", "card-login", "mx-auto", "mt-5"], [1, "card-header"], [1, "card-body"], ["novalidate", "", 3, "formGroup"], [1, "form-group"], [1, "form-label-group"], ["type", "email", "placeholder", "Email address", "autofocus", "autofocus", "formControlName", "inputEmail", "id", "inputEmail", 1, "form-control"], ["inputEmail", ""], ["for", "inputEmail"], ["class", "alert-danger", 4, "ngIf"], ["type", "password", "placeholder", "Password", "formControlName", "inputPassword", "id", "inputPassword", 1, "form-control"], ["inputPassword", ""], ["for", "inputPassword"], [1, "checkbox"], ["type", "checkbox", "value", "remember-me"], ["type", "submit", 1, "btn", "btn-primary", "btn-block", 3, "disabled", "click"], [1, "text-center"], ["href", "forgot-password.html", 1, "d-block", "small"], [1, "alert-danger"], [4, "ngIf"]],
       template: function AdminLoginComponent_Template(rf, ctx) {
         if (rf & 1) {
           var _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
@@ -3260,17 +3261,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "a", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function AdminLoginComponent_Template_a_click_28_listener() {
-            return ctx.walletLogin();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](29, "login with metamask");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "a", 19);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, "Forgot Password?");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](29, "Forgot Password?");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
