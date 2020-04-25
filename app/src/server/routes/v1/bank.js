@@ -47,39 +47,4 @@ module.exports = function(app, wagner) {
     });
   });
 
-  app.post('/v1/bank/upvotebank', function(req, res){
-    wagner.get('Banks')['upvotebank'](req).then(function(result){
-      res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
-    }).catch(function(error){
-      console.log(error);
-      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
-    });
-  });
-
-  app.post('/v1/bank/request/add', function(req, res){
-    wagner.get('Banks')['add_bank_request'](req).then(function(result){
-      res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
-    }).catch(function(error){
-      console.log(error);
-      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
-    });
-  });
-
-  app.get('/v1/bank/request/list', function(req, res){
-    wagner.get('Banks')['list_bank_request'](req).then(function(result){
-      res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
-    }).catch(function(error){
-      console.log(error);
-      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
-    });
-  });
-
-  app.post('/v1/bank/request/remove', function(req, res){
-    wagner.get('Banks')['remove_bank_request'](req).then(function(result){
-      res.status(HTTPStatus.OK).json({success: '1', message: "success", data: result });
-    }).catch(function(error){
-      console.log(error);
-      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
-    });
-  });
 };
