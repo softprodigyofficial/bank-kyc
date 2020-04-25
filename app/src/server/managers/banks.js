@@ -74,7 +74,6 @@ const Banks = (function(){
            });
         }, function(error){
             if(error){ reject(error); }
-            console.log(JSON.stringify(banks, null,4));
             resolve(banks);
         });
       }).catch((error) => {
@@ -113,7 +112,6 @@ const Banks = (function(){
         }).catch((error) => {
           reject(error);
         });
-
       }).catch((error) =>{
         console.log("blockchain error", error.message);
         reject({message:error.message});

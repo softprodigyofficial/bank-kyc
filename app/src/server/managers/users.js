@@ -19,7 +19,8 @@ const Users = (function(){
         var User = global_wagner.get('User');
         var Bank = global_wagner.get('Bank');
         var id = params.id;
-        User.scope(['active']).findOne({ where: { id: id },
+        User.scope(['active']).findOne({
+          where: { id: id }, attributes:["id","email","bank_id","role_id","is_active"],
           include:[{ model: Bank, as: "bank", required: false }]
         }).then((results) => {
           if(results){
