@@ -22,4 +22,13 @@ module.exports = function(app, wagner, passport) {
     })(req, res);
   });
 
+  app.get('/v1/user/:id', function(req, res){
+    wagner.get('Users')['user'](req.params).then(function(result){
+      res.status(HTTPStatus.OK).json({ success: '1', message: "success", data: result });
+    }).catch(function(error){
+      console.log(error);
+      res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: error });
+    });
+  });
+
 };
