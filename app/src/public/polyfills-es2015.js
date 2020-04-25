@@ -1,5 +1,36 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills"],{
 
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
 /***/ "./node_modules/zone.js/dist/zone-evergreen.js":
 /*!*****************************************************!*\
   !*** ./node_modules/zone.js/dist/zone-evergreen.js ***!
@@ -7,7 +38,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 * @license Angular v9.1.0-next.4+61.sha-e552591.with-local-changes
 * (c) 2010-2020 Google LLC. https://angular.io/
 * License: MIT
@@ -2952,6 +2983,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 })));
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -3026,17 +3058,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 2:
+/***/ 6:
 /*!********************************!*\
   !*** multi ./src/polyfills.ts ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\node-projects\bank-kyc-angular\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /var/www/html/bank-kyc-angular/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
 
-},[[2,"runtime"]]]);
+},[[6,"runtime"]]]);
 //# sourceMappingURL=polyfills-es2015.js.map

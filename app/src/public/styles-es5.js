@@ -390,7 +390,7 @@
   },
 
   /***/
-  3:
+  7:
   /*!**********************************************************************************!*\
     !*** multi ./src/styles.css ./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
     \**********************************************************************************/
@@ -400,13 +400,13 @@
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! C:\node-projects\bank-kyc-angular\src\styles.css */
+    /*! /var/www/html/bank-kyc-angular/src/styles.css */
     "./src/styles.css");
 
     module.exports = __webpack_require__(
-    /*! C:\node-projects\bank-kyc-angular\node_modules\bootstrap\dist\css\bootstrap.min.css */
+    /*! /var/www/html/bank-kyc-angular/node_modules/bootstrap/dist/css/bootstrap.min.css */
     "./node_modules/bootstrap/dist/css/bootstrap.min.css");
     /***/
   }
-}, [[3, "runtime"]]]);
+}, [[7, "runtime"]]]);
 //# sourceMappingURL=styles-es5.js.map
