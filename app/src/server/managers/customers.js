@@ -10,7 +10,7 @@ const Op = Sequelize.Op;
 
 const Customers = (function(){
 	let global_wagner, sequelize;
-	
+
 	function Customers(wagner){
 		global_wagner = wagner;
         sequelize = require(path.join(__dirname,'../utils/db'))(global_wagner);
@@ -18,71 +18,69 @@ const Customers = (function(){
 
 	Customers.prototype["add"] = function(req){
 	   return new Promise( (resolve, reject)=>{
-          var Customer = global_wagner.get('Customer');
-          Customer.create({ username: req.body.username, user_data: req.body.data, password: '0', wallet_address: req.body.wallet_address , rating: 0 , votes: 0 , is_active: true})
-          .then((result) => {
-            resolve(result);
-          }).catch((error) => {
-            reject(error);
-          });
-	   }); 
+        var Customer = global_wagner.get('Customer');
+        Customer.create({ username: req.body.username, user_data: req.body.data, password: '0', wallet_address: req.body.wallet_address , rating: 0 , votes: 0 , is_active: true})
+        .then((result) => {
+          resolve(result);
+        }).catch((error) => {
+          reject(error);
+        });
+	   });
 	}
 
 	Customers.prototype["list"] = function(req){
 	    return new Promise( (resolve, reject)=> {
            var Customer = global_wagner.get('Customer');
            let where = {};
-           if(req.query.wallet_address != 'null'){
-              where = { wallet_address: req.query.wallet_address };
-           }
            Customer.scope(['active']).findAll({where: where}).then((result) => {
              resolve(result);
            }).catch((error) =>{
            	 reject(error);
-           })  
+           })
 		});
 	}
 
 	Customers.prototype["vote"] = function(req){
 		return new Promise( (resolve, reject)=> {
-           var Customer = global_wagner.get('Customer');
-           Customer.update({rating: req.body.rating },{where:{username: req.body.username, wallet_address: req.body.wallet_address}})
+       var Customer = global_wagner.get('Customer');
+       Customer.update({rating: req.body.rating },{where:{username: req.body.username}})
 		   .then((result) =>{
-             resolve(result);
+				 resolve(result);
 		   }).catch((error) => {
-             reject(error);
+				 console.log(error);
+				 reject(error);
 		   });
 		});
 	}
 
 	Customers.prototype["view"] = function(req){
 		return new Promise( (resolve, reject)=> {
-           var Customer = global_wagner.get('Customer');
-           Customer.scope(['active']).findOne({where:{id: req.query.id, username: req.query.username }}).then((result)=>{
-              resolve(result);
-           }).catch((error)=>{
-              reject(error);
-           }); 
+			var Customer = global_wagner.get('Customer');
+			Customer.scope(['active']).findOne({where:{id: req.query.id, username: req.query.username }}).then((result)=>{
+			  resolve(result);
+			}).catch((error)=>{
+			  reject(error);
+			});
 		});
 	}
 
     Customers.prototype["edit"] = function(req){
        return new Promise( (resolve, reject)=> {
 	       	var Customer = global_wagner.get('Customer');
-	       	Customer.update({user_data: req.body.data, rating: 0, votes: 0}, {where:{username : req.body.username, wallet_address: req.body.wallet_address }})
+	       	Customer.update({user_data: req.body.data, rating: 0, votes: 0}, {where:{username : req.body.username }})
 	        .then((result) => {
 	           resolve(result);
 	        }).catch((error) => {
                reject(error);
 	        });
-       }); 
+       });
     }
 
 
     Customers.prototype["delete"] = function(req){
        return new Promise( (resolve, reject)=> {
           var Customer = global_wagner.get('Customer');
-          Customer.update({is_active: 0 },{where:{username : req.body.username, wallet_address: req.body.wallet_address }})
+          Customer.update({is_active: 0 },{where:{username : req.body.username }})
           .then((result) => {
             resolve(result);
           }).catch((error) => {
@@ -94,7 +92,7 @@ const Customers = (function(){
     Customers.prototype["set_password"] = function(req){
        return new Promise( (resolve, reject)=> {
           var Customer = global_wagner.get('Customer');
-          Customer.update({password: req.body.password},{where:{username : req.body.username, wallet_address: req.body.wallet_address }})
+          Customer.update({password: req.body.password},{where:{username : req.body.username }})
           .then((result) => {
             resolve(result);
           }).catch((error) => {
