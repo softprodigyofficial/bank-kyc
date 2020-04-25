@@ -23,9 +23,13 @@ module.exports = function (app, wagner) {
 
     app.get('*', function (req, res) {
 
-      res.render('error', {
-          title: 'Nodejs - Page Not Found',
-          message: "Invalid URL"
+      // res.render('error', {
+      //     title: 'Nodejs - Page Not Found',
+      //     message: "Invalid URL"
+      // });
+
+      res.render('index', {
+          title: 'Nodejs - Home'
       });
 
     });
