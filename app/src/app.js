@@ -31,6 +31,7 @@ const middleware = require('./server/utils/controller')(wagner);
 require('./server/models')(sequelize, wagner);
 require('./server/managers')(wagner, passport);
 const UserModel = wagner.get("User");
+const BankModel = wagner.get("Bank");
 console.log(UserModel);
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
@@ -39,7 +40,7 @@ passport.use(new LocalStrategy(
     console.log(email, password);
 
     // When a user tries to sign in this code runs
-    UserModel.findOne({ where: { email: email }})
+    UserModel.findOne({ where: { email: email }, include:[{ model: BankModel, as: "bank", required: false }] })
     .then(function(dbUser) {
       // If there's no user with the given email
       if (!dbUser) {

@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     //This will check if an unhashed password entered by the
     //user can be compared to the hashed password stored in our database
     User.prototype.validPassword = function(password) {
+        console.log("password", password);
       return bcrypt.compareSync(password, this.password);
     };
 
@@ -25,6 +26,12 @@ module.exports = function(sequelize, DataTypes) {
         null
       );
     });
+
+    User.associate = function(models){
+        User.belongsTo(models.Bank,{
+          as: 'bank', constraints: true, targetKey: 'id', foreignKey:'bank_id'
+        });
+    }
 
     return User;
 

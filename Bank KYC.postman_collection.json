@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"email\" : \"icici@kyc.local\",\n   \"password\" : \"user--\"\n}",
+					"raw": "{\n   \"email\" : \"admin@kyc.local\",\n   \"password\" : \"user\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -205,6 +205,562 @@
 						"v1",
 						"bank",
 						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addBank pass",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 11:20:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "ETag",
+							"value": "\"111-HAsHrM9T02rSUi3bKjOsB61jqhY\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AGZlF0tL-GL1nJEZQmG26-OPrRZhi322I.KfTYRb0429FyO644fSNcN6bCdz%2FB5TYAMjWwe2Gz4YM; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"is_active\": true,\n        \"id\": 1,\n        \"name\": \"icici\",\n        \"rg_number\": \"bank001\",\n        \"eth_transaction_id\": \"0x8de0d822e7519ba3035658df931cb5459bb5ae0b13a43051e73f581b76264e24\",\n        \"updatedAt\": \"2020-04-07T11:20:22.360Z\",\n        \"createdAt\": \"2020-04-07T11:20:22.360Z\"\n    }\n}"
+				},
+				{
+					"name": "addBank fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 12:01:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "\"80-9lI+nZB8JcOlqq+apVwHEAsG4+4\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3A3GB_D72eCOjsPo55cGK02rOY2VW9rJih.Pfi8uyXm%2Bk7luApEhyKdsAfVlhkxKlub3z1dN9dfSi0; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {\n        \"message\": \"VM Exception while processing transaction: revert Bank already present!\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteBank",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kyc.local/v1/bank/delete",
+					"protocol": "http",
+					"host": [
+						"kyc",
+						"local"
+					],
+					"path": [
+						"v1",
+						"bank",
+						"delete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addBank fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 12:01:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "\"80-9lI+nZB8JcOlqq+apVwHEAsG4+4\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3A3GB_D72eCOjsPo55cGK02rOY2VW9rJih.Pfi8uyXm%2Bk7luApEhyKdsAfVlhkxKlub3z1dN9dfSi0; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {\n        \"message\": \"VM Exception while processing transaction: revert Bank already present!\"\n    }\n}"
+				},
+				{
+					"name": "addBank pass",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 11:20:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "ETag",
+							"value": "\"111-HAsHrM9T02rSUi3bKjOsB61jqhY\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AGZlF0tL-GL1nJEZQmG26-OPrRZhi322I.KfTYRb0429FyO644fSNcN6bCdz%2FB5TYAMjWwe2Gz4YM; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"is_active\": true,\n        \"id\": 1,\n        \"name\": \"icici\",\n        \"rg_number\": \"bank001\",\n        \"eth_transaction_id\": \"0x8de0d822e7519ba3035658df931cb5459bb5ae0b13a43051e73f581b76264e24\",\n        \"updatedAt\": \"2020-04-07T11:20:22.360Z\",\n        \"createdAt\": \"2020-04-07T11:20:22.360Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "list Bank",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kyc.local/v1/bank/list",
+					"protocol": "http",
+					"host": [
+						"kyc",
+						"local"
+					],
+					"path": [
+						"v1",
+						"bank",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addBank pass",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"icici\",\n\t\"wallet_address\":\"0x951ed117B75B4E8c000f6d37D16DDfcf5AE746Ce\",\n\t\"rn\":\"bank001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 11:20:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "ETag",
+							"value": "\"111-HAsHrM9T02rSUi3bKjOsB61jqhY\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3AGZlF0tL-GL1nJEZQmG26-OPrRZhi322I.KfTYRb0429FyO644fSNcN6bCdz%2FB5TYAMjWwe2Gz4YM; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"1\",\n    \"message\": \"success\",\n    \"data\": {\n        \"is_active\": true,\n        \"id\": 1,\n        \"name\": \"icici\",\n        \"rg_number\": \"bank001\",\n        \"eth_transaction_id\": \"0x8de0d822e7519ba3035658df931cb5459bb5ae0b13a43051e73f581b76264e24\",\n        \"updatedAt\": \"2020-04-07T11:20:22.360Z\",\n        \"createdAt\": \"2020-04-07T11:20:22.360Z\"\n    }\n}"
+				},
+				{
+					"name": "addBank fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://kyc.local/v1/bank/add",
+							"protocol": "http",
+							"host": [
+								"kyc",
+								"local"
+							],
+							"path": [
+								"v1",
+								"bank",
+								"add"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 12:01:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "\"80-9lI+nZB8JcOlqq+apVwHEAsG4+4\""
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "connect.sid=s%3A3GB_D72eCOjsPo55cGK02rOY2VW9rJih.Pfi8uyXm%2Bk7luApEhyKdsAfVlhkxKlub3z1dN9dfSi0; Path=/; HttpOnly"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"0\",\n    \"message\": \"failure\",\n    \"data\": {\n        \"message\": \"VM Exception while processing transaction: revert Bank already present!\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "getBank",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"pnb\",\n\t\"wallet_address\":\"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03\",\n\t\"rn\":\"bank003\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kyc.local/v1/bank/show/0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03",
+					"protocol": "http",
+					"host": [
+						"kyc",
+						"local"
+					],
+					"path": [
+						"v1",
+						"bank",
+						"show",
+						"0x0e7AaE8E4aBc8B453387DfB11dFd678DdbD6aE03"
 					]
 				}
 			},
