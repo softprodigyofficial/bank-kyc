@@ -14,6 +14,11 @@ module.exports = function(){
           allowNull: false,
           unique: true,
         },
+        wallet_address: {
+          type: Sequelize.STRING(255),
+          unique: true,
+          allowNull: false
+        },
         rg_number: {
           type: Sequelize.STRING(255),
           allowNull: false,

@@ -23,6 +23,11 @@ module.exports = {
           allowNull: false,
           unique: true,
         },
+        wallet_address: {
+          type: Sequelize.STRING(255),
+          unique: true,
+          allowNull: false
+        },
         is_active: {
           type: Sequelize.BOOLEAN,
           unique:false,

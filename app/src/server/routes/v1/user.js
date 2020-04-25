@@ -18,7 +18,7 @@ module.exports = function(app, wagner, passport) {
       req.session.save();
       res.status(HTTPStatus.OK).json({ success: '1', message: "success", data: info }); 
      }
-     else { res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: {} });  }
+     else { console.log(info); res.status(HTTPStatus.NOT_FOUND).json({ success: '0', message: "failure", data: {} });  }
    })(req, res);
   });
 

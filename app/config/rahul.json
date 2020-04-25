@@ -37,9 +37,9 @@
         }
     },
     "ethereum":{
-        "MNEMONIC" : "salon wide mail debris purity weapon traffic recall benefit extend special sunny",
+        "MNEMONIC" : "smooth knock already decrease eyebrow usage divert crumble blur attend awake avocado",
         "NETWORK" : "http://127.0.0.1:7545",
-        "NFT_CONTRACT_ADDRESS" : "0x9a459D8E32766Ef1C1dBBC9DA80E80696bCb0ad4",
-        "WALLET_ADDRESS" : "0xBFf7BDa7E04C019df99A2dfB5C74f7921db3dF43"
+        "NFT_CONTRACT_ADDRESS" : "0x06Aa76a46443244D4092181BC18545bBaF5a8e11",
+        "WALLET_ADDRESS" : "0xc9eCB58B4c96DE1fC48d41B4ef3D4421F6d52aF5"
     }
 }
