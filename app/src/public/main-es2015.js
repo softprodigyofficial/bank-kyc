@@ -2058,7 +2058,8 @@ class ListRequestComponent {
                 try {
                     results[this.last] = yield this.ethereumService.getBankRequest(this.wallet_address, this.last);
                     console.log((results[this.last][2]));
-                    if ((results[this.last][2]) != "0x0000000000000000000000000000000000000000" && results[this.last][3]) {
+                    // if((results[this.last][2])!="0x0000000000000000000000000000000000000000" && results[this.last][3]){
+                    if ((results[this.last][2]) != "0x0000000000000000000000000000000000000000") {
                         this.bankRequestLists.push({
                             username: this.ethereumService.web3.utils.hexToString(results[this.last][0]),
                             user_data: this.ethereumService.web3.utils.hexToString(results[this.last][1]),
