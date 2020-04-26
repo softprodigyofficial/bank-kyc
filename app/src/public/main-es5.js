@@ -4472,9 +4472,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   case 5:
                     results[this.last] = _context12.sent;
-                    console.log(results[this.last][2]);
+                    console.log(results[this.last][2]); // if((results[this.last][2])!="0x0000000000000000000000000000000000000000" && results[this.last][3]){
 
-                    if (results[this.last][2] != "0x0000000000000000000000000000000000000000" && results[this.last][3]) {
+                    if (results[this.last][2] != "0x0000000000000000000000000000000000000000") {
                       this.bankRequestLists.push({
                         username: this.ethereumService.web3.utils.hexToString(results[this.last][0]),
                         user_data: this.ethereumService.web3.utils.hexToString(results[this.last][1]),
