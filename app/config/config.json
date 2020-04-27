@@ -12,5 +12,12 @@
     "database": "bank_kyc",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "staging": {
+    "username": "BankYcU",
+    "password": "BankYcPwD",
+    "database": "BankYc",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
