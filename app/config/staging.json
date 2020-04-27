@@ -1,0 +1,45 @@
+{
+    "app_route": "http://kyc.softprodigyphp.in/",
+    "google_analytics": "",
+    "PORT":3024,
+    "db": {
+        "database": "BankYc",
+        "username": "BankYcU",
+        "password": "BankYcPwD",
+        "options": {
+            "timezone": "+05:30",
+            "dialect": "mysql",
+            "dialectOptions": {
+                "decimalNumbers": true
+            },
+            "port": 3306,
+            "pool": {
+                "max": 50,
+                "min": 0,
+                "idle": 500
+            },
+            "replication": {
+                "write": {
+                    "username": "BankYcU",
+                    "password": "BankYcPwD",
+                    "host": "127.0.0.1",
+                    "port": 3306
+                },
+                "read": [
+                    {
+                        "username": "BankYcU",
+                        "password": "BankYcPwD",
+                        "host": "127.0.0.1",
+                        "port": 3306
+                    }
+                ]
+            }
+        }
+    },
+    "ethereum":{
+        "MNEMONIC" : "smooth knock already decrease eyebrow usage divert crumble blur attend awake avocado",
+        "NETWORK" : "http://10.81.234.20:7545",
+        "NFT_CONTRACT_ADDRESS" : "0x06Aa76a46443244D4092181BC18545bBaF5a8e11",
+        "WALLET_ADDRESS" : "0xc9eCB58B4c96DE1fC48d41B4ef3D4421F6d52aF5"
+    }
+}
