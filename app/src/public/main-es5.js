@@ -6157,9 +6157,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var environment = {
       production: false,
-      apiUrl2: 'http://kyc.local',
-      apiUrl: 'http://localhost:3002',
-      RPCProvider: 'http://127.0.0.1:7545',
+      apiUrl2: 'http://kyc.softprodigyphp.in',
+      apiUrl: 'http://kyc.softprodigyphp.in',
+      RPCProvider: 'http://10.81.234.20:7545',
       ContractAddress: '0x06Aa76a46443244D4092181BC18545bBaF5a8e11',
       WalletAddress: '0xc9eCB58B4c96DE1fC48d41B4ef3D4421F6d52aF5'
     };
