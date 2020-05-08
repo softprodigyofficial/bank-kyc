@@ -6157,11 +6157,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var environment = {
       production: false,
-      apiUrl2: 'http://kyc.softprodigyphp.in',
       apiUrl: 'http://kyc.softprodigyphp.in',
-      RPCProvider: 'http://10.81.234.20:7545',
-      ContractAddress: '0x06Aa76a46443244D4092181BC18545bBaF5a8e11',
-      WalletAddress: '0xc9eCB58B4c96DE1fC48d41B4ef3D4421F6d52aF5'
+      RPCProvider: 'https://rinkeby.infura.io/v3/9bdab8bf5f19496f8f81c1a870bbb52a',
+      ContractAddress: '0xd187d06bB8aFf2640261D67aB2004A28a8619B48',
+      WalletAddress: '0x3a55AA0731FdF36Cd0608719ae5c1A2A786EB972'
     };
     /*
      * For easier debugging in development mode, you can import the following file
