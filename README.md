@@ -7,3 +7,6 @@
 | KYC Contract Address | Bhawna-Pandey/Ganache/bank-kyc workspace | 0xa78E1dFB09D77a469aAF18A0A1596FAA9946894E |
 | MNEMONIC | Bhawna-Pandey/Ganache/bank-kyc workspace | "air insane page early ivory ten oyster air nasty mom wasp neck" |
 | Ethaddress | Bhawna / Admin | 0xA8982f872C27572919B028C8f1bBc8AB683fA970 |
+| KYC Contract Address | rinkeby | 0xd187d06bB8aFf2640261D67aB2004A28a8619B48 |
+| MNEMONIC | rinkeby | "upon poet execute decide theory rebel erase fuel excite forget okay pond" |
+| Ethaddress | rinkeby | 0x3a55aa0731fdf36cd0608719ae5c1a2a786eb972 |
